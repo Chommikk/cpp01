@@ -18,24 +18,35 @@ void do_it_easy(char **argv){
 	}
 
 	std::string content;
-	inFile >> content;
-
-	size_t	pos;
-	size_t	len = strlen(argv[2]);
-
-	while (1){
-		pos = content.find(argv[2]);
-		if (pos == std::string::npos){
-			outFile << content;
-			if (!outFile){
-				std::cerr << "Failed to write to" << std::endl;
-				exit (1);
-			}
-			exit (0);
-		}
-		content.erase(pos, len);
-		content.insert(pos, argv[3]);
+	std::string line;
+	while (std::getline(inFile, line)){
+		content += line + "\n";
 	}
+
+	size_t	pos = 0;
+	size_t	len = strlen(argv[2]);
+	size_t	len_replace = strlen(argv[3]);
+	std::string to_find = argv[2];
+	std::string to_replace = argv[3];
+
+	pos = content.find(to_find, pos);
+	while (pos != std::string::npos){
+		content.erase(pos, len);
+		content.insert(pos, to_replace);
+		pos += len_replace;
+		pos = content.find(to_find, pos);
+	}
+	std::cout << content << std::endl;
+	outFile << content;
+	if (!outFile){
+		outFile.close();
+		inFile.close();
+		std::cerr << "Failed to write to" << std::endl;
+		exit (1);
+	}
+	outFile.close();
+	inFile.close();
+	exit (0);
 }
 
 
