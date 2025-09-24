@@ -5,13 +5,17 @@
 #include <iostream>
 
 class HumanB{
-	public:
-		HumanB(std::string str, Weapon &wp): name(str), weapon(wp){}
-
+	private:
 		std::string	name;
-		Weapon		weapon;
+		Weapon		*weapon;
+
+	public:
+		HumanB(std::string str, Weapon &wp): name(str), weapon(&wp){}
+		HumanB(std::string str): name(str), weapon(NULL){}
+
 
 		void	attack(void) const;
+		void	setWeapon(Weapon& wp);
 };
 
 #endif

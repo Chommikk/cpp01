@@ -11,4 +11,3 @@ void Weapon::setType(std::string str) {
 Weapon::Weapon(std::string str){
 	type = str;
 }
-

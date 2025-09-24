@@ -1,7 +1,13 @@
 NAME = fairytail_of_pointers_variables_and_references
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-FILES = main.cpp
+FILES = main.cpp\
+		HumanA.cpp\
+		HumanB.cpp\
+		Weapon.cpp
+HFILES = HumanA.hpp\
+		 HumanB.hpp\
+		 Weapon.hpp
 
 OBJ = $(FILES:.cpp=.o)
 
