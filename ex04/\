@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <cstdlib>
+
+void heap_allocated(char **argv, size_t size){
+
+}
+
+void stack_allocated(char **argv, size_t size){
+	std::ifstream inFile(argv[1]);
+	if (!inFile){
+		std::cerr << "Can't open file to read" << std::endl;
+		exit(1);
+	}
+
+	char	buff[]
+
+}
+
+
+int main(int argc, char **argv){
+	if (argc != 4){
+		std::cout << "Incorect amount of arguments\n"
+			<< "Use case: ./sed_at_home <filename> <string_to_find> <string_to_replace>" << std::endl;
+		return (1);
+	}
+
+	size_t size = 1000 + strlen(argv[2]);
+
+	if (size > 5000)
+		heap_allocated(argv, size);
+	else
+		stack_allocated(argv, size);
+	
+	
+}
