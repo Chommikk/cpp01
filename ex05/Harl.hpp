@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <map>
 
 class Harl{
 	private :
@@ -11,10 +10,9 @@ class Harl{
 		void	info(void) const;
 		void	warning(void) const;
 		void	error(void) const;
-		std::map	<
-			std::string,
-			void(Harl::*)(void)const
-			> hash;
+		void (Harl::*farr[4])(void)const ;
+		std::string		str[4];
+
 
 	public :
 		void	complain(std::string leve);

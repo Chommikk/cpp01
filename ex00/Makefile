@@ -16,8 +16,8 @@ $(NAME): $(OBJ) $(HFILES)
 	$(CC) $(CFLAGS)  $(OBJ) -o $(NAME)
 
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c -O  $< -o $@
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c  $< -o $@
 	
 clean :
 	rm -f $(OBJ) $(BOBJ)

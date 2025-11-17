@@ -1,11 +1,18 @@
 #include "Harl.hpp"
 #include <iostream>
 
+
 Harl::Harl(){
-	hash["DEBUG"] = & Harl::debug;
-	hash["INFO"] = & Harl::info;
-	hash["WARNING"] = & Harl::warning;
-	hash["ERROR"] = & Harl::error;
+
+	farr[0] = &Harl::debug;
+	farr[1] = &Harl::info;
+	farr[2] = &Harl::warning;
+	farr[3] = &Harl::error;
+
+	str[0] = "DEBUG";
+	str[1] = "INFO";
+	str[2] = "WARNING";
+	str[3] = "ERROR";
 }
 
 void	Harl::debug (void) const{
@@ -25,5 +32,10 @@ void	Harl::error (void) const{
 }
 
 void	Harl::complain(std::string level){
-	(this->*(hash)[level])();
+	for (int i = 0; i < 4 ; i ++){
+		if (str[i] == level){
+			(this->*farr[i])();
+			break ;
+		}
+	}
 }

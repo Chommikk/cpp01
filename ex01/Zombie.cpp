@@ -10,6 +10,9 @@ void Zombie::nameZombie (std::string str){
 		name = str;
 }
 
+Zombie::Zombie(){
+}
+
 Zombie::Zombie(std::string str){
 	name = str;
 }

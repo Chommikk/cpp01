@@ -13,7 +13,7 @@ class Zombie{
 		void nameZombie(std::string str);
 
 		Zombie(std::string str);
-		Zombie() = default;
+		Zombie();
 
 		~Zombie(void);
 
